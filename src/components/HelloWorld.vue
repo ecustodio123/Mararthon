@@ -1,22 +1,21 @@
 <template>
   <div class="hello">
     <h1>Marathon</h1>
+    <div class="test">
+      <div v-for="(data, index) in dataMarathon" :key="index">
+        <div class="bg-rectangle-dark">
+          <img
+            src="https://dummyimage.com/200x200/024983/ffffff&text=website"
+            alt=""
+            class="image-marathon"
+          />
 
-    <div v-for=" (data, index) in dataMarathon" :key="index">
+          <h5 class="h5-marathon">{{ index }}. {{ data.username }}</h5>
+        </div>
 
-      <div class="bg-rectangle-dark">
-        <img src="https://dummyimage.com/200x200/024983/ffffff&text=website" alt="" class="image-marathon">
-
-        <h5 style="color: #ffffff">
-        {{index}}. {{data.username}}
-        </h5>
+        <br /><br />
       </div>
-
-      {{data}}
-
     </div>
-
-    {{ dataMarathon }}
   </div>
 </template>
 
@@ -26,13 +25,13 @@ export default {
   data() {
     return {
       name: "HelloWorld",
-      dataMarathon: [],
+      dataMarathon: {},
     };
   },
   created() {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
-      .then((response) => (this.dataMarathon = response));
+      .then((response) => (this.dataMarathon = response.data));
   },
 };
 </script>
@@ -53,16 +52,26 @@ li {
 a {
   color: #42b983;
 }
-.bg-rectangle-dark{
+.bg-rectangle-dark {
   background: #444444;
-  height: 16rem;
-  max-width: 12rem;
-  border-radius: 0.40rem!important;
+  height: 350px;
+  width: 200px;
+  border-radius: 0.4rem !important;
+  margin-right: 20px;
 }
-.image-marathon{
-  height: 8rem;
-  max-width: 10rem;
-  border-radius: 0.40rem!important;
-  margin: 20px;
+.image-marathon {
+  height: auto;
+  width: 180px;
+  border-radius: 0.4rem !important;
+  margin: 20px 0px;
+}
+.test {
+  display: flex !important;
+}
+.h5-marathon {
+  color: #ffffff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 18px;
 }
 </style>
