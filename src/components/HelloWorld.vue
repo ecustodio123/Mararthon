@@ -1,7 +1,7 @@
 <template>
-  <div class="hello">
+  <div class="hello" style="padding: 20px">
     <h1>Marathon</h1>
-    <div class="test">
+    <div class="test" style="overflow-x: auto">
       <div v-for="(data, index) in dataMarathon" :key="index">
         <div class="bg-rectangle-dark">
           <img
@@ -10,7 +10,27 @@
             class="image-marathon"
           />
 
-          <h5 class="h5-marathon">{{ index }}. {{ data.username }}</h5>
+          <h5 class="h5-marathon" style="text-align: center">
+            {{ index }}. {{ data.username }}
+          </h5>
+          <div class="mx-5">
+            <div class="d-flex" style="justify-content: space-evenly;">
+              <h6 class="subtitle">Name:</h6>
+              <h6 class="description">{{ data.name }}</h6>
+            </div>
+            <div class="d-flex" style="justify-content: space-evenly;">
+              <h6 class="subtitle">Email:</h6>
+              <h6 class="description">{{ data.email }}</h6>
+            </div>
+            <div class="d-flex" style="justify-content: space-evenly;">
+              <h6 class="subtitle">Company:</h6>
+              <h6 class="description">{{ data.company.name }}</h6>
+            </div>
+            <div class="d-flex" style="justify-content: space-evenly;">
+              <h6 class="subtitle">City:</h6>
+              <h6 class="description">{{ data.address.city }}</h6>
+            </div>
+          </div>
         </div>
 
         <br /><br />
@@ -63,7 +83,7 @@ a {
   height: auto;
   width: 180px;
   border-radius: 0.4rem !important;
-  margin: 20px 0px;
+  margin: 20px 10px;
 }
 .test {
   display: flex !important;
@@ -73,5 +93,11 @@ a {
   margin-top: 0px;
   margin-bottom: 0px;
   font-size: 18px;
+}
+.subtitle{
+  color: #6e6e6e;
+}
+.description{
+  color: #FFFFFF;
 }
 </style>
